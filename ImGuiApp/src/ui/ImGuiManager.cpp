@@ -48,7 +48,9 @@ bool ImGuiManager::Initialize(HWND hwnd, IDirect3DDevice9* device)
     auto* fontMgr = Style::FontManager::GetInstance();
 
     // 1. Load default text font (pass nullptr to use ImGui's built-in font)
-    fontMgr->LoadDefaultFont(nullptr, 18.0f);
+    ImFontConfig config;
+    config.SizePixels = 13.0f;  // Explicit size
+    io.Fonts->AddFontDefault(&config);
 
     // 2. Merge Material Symbols Rounded icons into the default font
     fontMgr->MergeIconFont(
