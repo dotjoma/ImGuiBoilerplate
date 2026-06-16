@@ -3,7 +3,7 @@
 A clean, ready-to-use **Dear ImGui** boilerplate built with **DirectX 9** and **Win32**. Designed as a starting point for desktop GUI applications on Windows.
 
 <p align="center">
-  <img src="image.png" alt="ImGui Boilerplate" width="700"/>
+  <img src="image.PNG" alt="ImGui Boilerplate" width="700"/>
 </p>
 
 ## Features
