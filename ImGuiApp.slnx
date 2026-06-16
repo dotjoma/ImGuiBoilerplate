@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="ImGuiApp/ImGuiApp.vcxproj" Id="bbccdbe8-a081-41b3-ace4-10200b4d27d3" />
+</Solution>
