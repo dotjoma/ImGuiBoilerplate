@@ -1,5 +1,11 @@
 # ImGui Boilerplate
 
+![C++20](https://img.shields.io/badge/C%2B%2B-20-blue?style=for-the-badge&logo=cplusplus&logoColor=white)
+![DirectX 9](https://img.shields.io/badge/DirectX-9-green?style=for-the-badge&logo=microsoft&logoColor=white)
+![Dear ImGui](https://img.shields.io/badge/Dear%20ImGui-1.91+-orange?style=for-the-badge)
+![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey?style=for-the-badge&logo=windows&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+
 A clean, ready-to-use **Dear ImGui** boilerplate built with **DirectX 9** and **Win32**. Designed as a starting point for desktop GUI applications on Windows.
 
 <p align="center">
