@@ -111,7 +111,7 @@ ImGuiApp/
 ```
 
 > [!TIP]
-> Only `MaterialSymbolsRounded_Filled-Regular.ttf` (inside `static/`) is required for the default setup. The other weight variants are optional.
+> Only `MaterialSymbolsRounded_Filled-Regular.ttf` or `MaterialSymbolsRounded_Filled-Bold.ttf` (inside `static/`) is required for the default setup. The other weight variants are optional.
 
 ### Step 3 — Build and run
 
