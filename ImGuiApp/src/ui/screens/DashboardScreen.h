@@ -18,6 +18,7 @@ private:
     void RenderHeader();
     void RenderStatusPanel();
     void RenderQuickActions();
+    void RenderIconShowcase();
 };
 
 }  // namespace UI

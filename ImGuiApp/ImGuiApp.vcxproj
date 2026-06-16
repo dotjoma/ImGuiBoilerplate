@@ -184,6 +184,7 @@
     <ClInclude Include="src\ui\style\Colors.h" />
     <ClInclude Include="src\ui\style\Theme.h" />
     <ClInclude Include="src\ui\style\Fonts.h" />
+    <ClInclude Include="src\ui\style\Icons.h" />
     <!-- ImGui -->
     <ClInclude Include="vendor\ImGui\imgui.h" />
     <ClInclude Include="vendor\ImGui\imconfig.h" />

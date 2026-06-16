@@ -29,7 +29,7 @@ int main()
     // ─── Create Window ───────────────────────────────────
     ImGui_ImplWin32_EnableDpiAwareness();
 
-    auto window = std::make_unique<GuiWindow>(L"ImGui Application", 800, 500);
+    auto window = std::make_unique<GuiWindow>(L"ImGui Application", 800, 600);
     if (!window->Create())
         return 1;
 

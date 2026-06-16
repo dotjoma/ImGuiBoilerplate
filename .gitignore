@@ -1,3 +1,7 @@
 .vs
 x64
-KremAds/x64
+ImGuiApp/x64
+
+# Fonts are NOT committed — too large (~200MB).
+# See README.md "Font Setup" section for download instructions.
+ImGuiApp/vendor/fonts/

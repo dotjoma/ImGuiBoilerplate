@@ -167,6 +167,9 @@
     <ClInclude Include="src\ui\style\Fonts.h">
       <Filter>Header Files\ui\style</Filter>
     </ClInclude>
+    <ClInclude Include="src\ui\style\Icons.h">
+      <Filter>Header Files\ui\style</Filter>
+    </ClInclude>
     <!-- ImGui -->
     <ClInclude Include="vendor\ImGui\backends\imgui_impl_dx9.h">
       <Filter>Header Files\vendor\imgui\backends</Filter>
