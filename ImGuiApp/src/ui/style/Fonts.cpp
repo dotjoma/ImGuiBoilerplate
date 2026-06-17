@@ -54,12 +54,22 @@ ImFont* FontManager::MergeIconFont(const char* filename, float size, const ImWch
         LPVOID lpAddress = LockResource(hMemory);
         
         if (lpAddress && dwSize > 0) {
+            // IMPORTANT: ImGui will take ownership and free this memory on shutdown.
+            // We must allocate a copy that can be safely freed.
+            void* fontDataCopy = ImGui::MemAlloc(dwSize);
+            memcpy(fontDataCopy, lpAddress, dwSize);
+            
             // Load font from memory (embedded resource)
-            font = io.Fonts->AddFontFromMemoryTTF(lpAddress, dwSize, size, &config, glyphRanges);
+            // The last parameter (font_data_owned_by_atlas = NULL, defaults to true) tells ImGui to free the memory
+            font = io.Fonts->AddFontFromMemoryTTF(fontDataCopy, dwSize, size, &config, glyphRanges);
             
             if (font) {
                 // Success - loaded from embedded resource
                 return font;
+            }
+            else {
+                // If font loading failed, we need to free the allocated memory ourselves
+                ImGui::MemFree(fontDataCopy);
             }
         }
     }
