@@ -19,10 +19,55 @@
 #include "src/ui/ScreenManager.h"
 #include "src/ui/screens/DashboardScreen.h"
 #include "src/ui/screens/SettingsScreen.h"
+#include "resource.h"
 #include "imgui.h"
 #include "imgui_impl_dx9.h"
 #include "imgui_impl_win32.h"
 #include <memory>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <Windows.h>
+
+// ═══════════════════════════════════════════════════════════════
+// ─── Embedded Resource Helper Functions ───────────────────────
+// ═══════════════════════════════════════════════════════════════
+
+/**
+ * Load embedded resource data from EXE
+ */
+bool LoadEmbeddedResource(int resourceID, std::vector<char>& outData)
+{
+    HRSRC hResource = FindResource(nullptr, MAKEINTRESOURCE(resourceID), RT_RCDATA);
+    if (!hResource)
+    {
+        std::cerr << "[Resource] Failed to find resource " << resourceID << std::endl;
+        return false;
+    }
+
+    HGLOBAL hMemory = LoadResource(nullptr, hResource);
+    if (!hMemory)
+    {
+        std::cerr << "[Resource] Failed to load resource " << resourceID << std::endl;
+        return false;
+    }
+
+    DWORD size = SizeofResource(nullptr, hResource);
+    void* pData = LockResource(hMemory);
+    
+    if (!pData || size == 0)
+    {
+        std::cerr << "[Resource] Failed to lock resource " << resourceID << std::endl;
+        return false;
+    }
+
+    outData.resize(size);
+    memcpy(outData.data(), pData, size);
+    
+    std::cout << "[Resource] Loaded resource " << resourceID << " (" << size << " bytes)" << std::endl;
+    return true;
+}
 
 int main()
 {

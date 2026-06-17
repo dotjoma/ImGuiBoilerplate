@@ -166,6 +166,7 @@
   <!-- Header Files (.h) -->
   <ItemGroup>
     <!-- Graphics -->
+    <ClInclude Include="resource.h" />
     <ClInclude Include="src\graphics\GuiRenderer.h" />
     <ClInclude Include="src\graphics\GuiWindow.h" />
     <!-- UI Core -->
@@ -191,6 +192,9 @@
     <ClInclude Include="vendor\ImGui\imgui_internal.h" />
     <ClInclude Include="vendor\ImGui\backends\imgui_impl_dx9.h" />
     <ClInclude Include="vendor\ImGui\backends\imgui_impl_win32.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resources.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

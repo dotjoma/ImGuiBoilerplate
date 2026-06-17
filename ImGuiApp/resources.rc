@@ -1,0 +1,4 @@
+#include "resource.h"
+
+// Embed Material Symbols font
+IDR_MATERIAL_SYMBOLS_FONT RCDATA "vendor\\fonts\\Material_Symbols_Rounded\\static\\MaterialSymbolsRounded_Filled-Bold.ttf"

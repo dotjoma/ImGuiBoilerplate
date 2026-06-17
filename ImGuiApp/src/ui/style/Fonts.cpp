@@ -1,4 +1,6 @@
 #include "Fonts.h"
+#include "../../../resource.h"
+#include <Windows.h>
 
 namespace UI::Style {
 
@@ -40,10 +42,31 @@ ImFont* FontManager::MergeIconFont(const char* filename, float size, const ImWch
     // Slight vertical offset to better align icons with text
     config.GlyphOffset = ImVec2(0.0f, 4.0f); // negative values move icon upward ImVec2(0.0f, -4.0f)
 
-    ImFont* font = io.Fonts->AddFontFromFileTTF(filename, size, &config, glyphRanges);
+    ImFont* font = nullptr;
 
-    // When MergeMode is true, AddFontFromFileTTF returns the font it merged INTO
-    // (the previously added font), so we don't store it separately.
+    // Try to load from embedded resource first
+    HMODULE hModule = GetModuleHandle(NULL);
+    HRSRC hResource = FindResource(hModule, MAKEINTRESOURCE(IDR_MATERIAL_SYMBOLS_FONT), RT_RCDATA);
+    
+    if (hResource) {
+        HGLOBAL hMemory = LoadResource(hModule, hResource);
+        DWORD dwSize = SizeofResource(hModule, hResource);
+        LPVOID lpAddress = LockResource(hMemory);
+        
+        if (lpAddress && dwSize > 0) {
+            // Load font from memory (embedded resource)
+            font = io.Fonts->AddFontFromMemoryTTF(lpAddress, dwSize, size, &config, glyphRanges);
+            
+            if (font) {
+                // Success - loaded from embedded resource
+                return font;
+            }
+        }
+    }
+    
+    // Fallback: Try to load from file if resource loading failed
+    font = io.Fonts->AddFontFromFileTTF(filename, size, &config, glyphRanges);
+
     return font;
 }
 
